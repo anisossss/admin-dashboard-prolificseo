@@ -19,7 +19,7 @@ export const CardTransactions = () => {
          <Card.Body css={{py: '$10'}}>
             <Flex css={{gap: '$5'}} justify={'center'}>
                <Text h3 css={{textAlign: 'center'}}>
-                  Latest Transactions
+                  Latest Orders
                </Text>
             </Flex>
             <Flex
@@ -38,10 +38,10 @@ export const CardTransactions = () => {
                      stacked
                   />
                   <Text span size={'$base'} weight={'semibold'}>
-                     Jose Perez
+                     Username
                   </Text>
                   <Text span css={{color: '$purple400'}} size={'$xs'}>
-                     4500 USD
+                     Amount
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      9/20/2021

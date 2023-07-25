@@ -8,7 +8,8 @@ export const CardBalance2 = () => {
    return (
       <Card
          css={{
-            mw: '375px',
+                    width: '400px',
+            height: '120px',
             bg: '$accents0',
             borderRadius: '$xl',
             px: '$6',
@@ -19,20 +20,16 @@ export const CardBalance2 = () => {
                <Community color={'$accents9'} />
                <Flex direction={'column'}>
                   <Text span css={{color: ''}}>
-                     Healt Insurance
+                     Total Orders
                   </Text>
-                  <Text span size={'$xs'}>
-                     +2400 People
-                  </Text>
+                
                </Flex>
             </Flex>
             <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
                <Text span size={'$xl'} weight={'semibold'}>
-                  $12,138
+                 34
                </Text>
-               <Text span css={{color: '$red600'}} size={'$xs'}>
-                  + 4.5%
-               </Text>
+             
             </Flex>
             <Flex css={{gap: '$12'}} align={'center'}>
                <Box>
@@ -42,11 +39,9 @@ export const CardBalance2 = () => {
                      css={{color: '$purple400'}}
                      weight={'semibold'}
                   >
-                     {'↓'}
+                   
                   </Text>
-                  <Text span size={'$xs'}>
-                     11,930 USD
-                  </Text>
+                
                </Box>
                <Box>
                   <Text
@@ -55,10 +50,10 @@ export const CardBalance2 = () => {
                      css={{color: '$red600'}}
                      weight={'semibold'}
                   >
-                     {'↑'}
+                     
                   </Text>
                   <Text span size={'$xs'}>
-                     54,120 USD
+                    
                   </Text>
                </Box>
                <Box>
@@ -68,10 +63,10 @@ export const CardBalance2 = () => {
                      css={{color: '$purple400'}}
                      weight={'semibold'}
                   >
-                     {'⭐'}
+                    
                   </Text>
                   <Text span size={'$xs'}>
-                     150 VIP
+                     
                   </Text>
                </Box>
             </Flex>

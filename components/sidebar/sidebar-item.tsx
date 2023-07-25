@@ -44,12 +44,17 @@ export const SidebarItem = ({icon, title, isActive, href = ''}: Props) => {
                   },
                   ...(isActive
                      ? {
-                          'bg': '$purple200',
+                          'bg': '$purple100',
                           '& svg path': {
-                             fill: '$purple200',
+                             fill: '$purple700',
                           },
                        }
-                     : {'&:hover': {bg: '$accents2'}}),
+                     : {'&:hover': {
+                          'bg': '$purple100',
+                          '& svg path': {
+                             fill: '$purple700',
+                          },
+                       }}),
                }}
                align={'center'}
             >

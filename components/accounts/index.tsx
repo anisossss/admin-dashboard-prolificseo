@@ -65,10 +65,7 @@ export const Accounts = () => {
                   css={{width: '100%', maxW: '410px'}}
                   placeholder="Search users"
                />
-               <SettingsIcon />
-               <TrashIcon />
-               <InfoIcon />
-               <DotsIcon />
+             
             </Flex>
             <Flex direction={'row'} css={{gap: '$6'}} wrap={'wrap'}>
                <AddUser />

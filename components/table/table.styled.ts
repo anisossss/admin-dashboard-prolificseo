@@ -41,7 +41,7 @@ export const StyledBadge = styled('span', {
             bg: '$errorLight',
             color: '$errorLightContrast',
          },
-         vacation: {
+        pending: {
             bg: '$warningLight',
             color: '$warningLightContrast',
          },

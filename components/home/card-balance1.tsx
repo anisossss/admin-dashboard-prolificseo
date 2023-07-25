@@ -8,7 +8,9 @@ export const CardBalance1 = () => {
    return (
       <Card
          css={{
-            mw: '375px',
+                    width: '400px',
+            height: '120px',
+
             bg: '$purple200',
             borderRadius: '$xl',
             px: '$6',
@@ -16,28 +18,23 @@ export const CardBalance1 = () => {
       >
          <Card.Body css={{py: '$10'}}>
             <Flex css={{gap: '$5'}}>
-               <Community />
+               <Community color={'$accents9'}/>
                <Flex direction={'column'}>
-                  <Text span css={{color: 'white'}}>
+                  <Text span >
                      Total Users
                   </Text>
-                  <Text span css={{color: 'white'}} size={'$xs'}>
-                     1311 Cars
-                  </Text>
+               
                </Flex>
             </Flex>
             <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
                <Text
                   span
                   size={'$xl'}
-                  css={{color: 'white'}}
                   weight={'semibold'}
                >
-                  $45,910
+                  5,910
                </Text>
-               <Text span css={{color: '$purple400'}} size={'$xs'}>
-                  + 4.5%
-               </Text>
+              
             </Flex>
             <Flex css={{gap: '$12'}} align={'center'}>
                <Box>
@@ -47,10 +44,10 @@ export const CardBalance1 = () => {
                      css={{color: '$purple400'}}
                      weight={'semibold'}
                   >
-                     {'↓'}
+                    
                   </Text>
-                  <Text span size={'$xs'} css={{color: '$white'}}>
-                     100,930 USD
+                  <Text span size={'$xs'} >
+                    
                   </Text>
                </Box>
                <Box>
@@ -60,10 +57,10 @@ export const CardBalance1 = () => {
                      css={{color: '$red600'}}
                      weight={'semibold'}
                   >
-                     {'↑'}
+                   
                   </Text>
                   <Text span size={'$xs'} css={{color: '$white'}}>
-                     54,120 USD
+                   
                   </Text>
                </Box>
                <Box>
@@ -73,10 +70,10 @@ export const CardBalance1 = () => {
                      css={{color: '$purple400'}}
                      weight={'semibold'}
                   >
-                     {'⭐'}
+                     
                   </Text>
                   <Text span size={'$xs'} css={{color: '$white'}}>
-                     125 VIP
+                     
                   </Text>
                </Box>
             </Flex>

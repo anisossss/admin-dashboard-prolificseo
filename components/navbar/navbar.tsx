@@ -1,10 +1,9 @@
-import {Input, Link, Navbar, Text} from '@nextui-org/react';
+import { Link, Navbar, Text} from '@nextui-org/react';
 import React from 'react';
-import {SupportIcon} from '../icons/navbar/support-icon';
-import {SearchIcon} from '../icons/searchicon';
 import {Box} from '../styles/box';
 import {BurguerButton} from './burguer-button';
 import {UserDropdown} from './user-dropdown';
+import {DarkModeSwitch} from './darkmodeswitch';
 
 interface Props {
    children: React.ReactNode;
@@ -12,15 +11,9 @@ interface Props {
 
 export const NavbarWrapper = ({children}: Props) => {
    const collapseItems = [
-      'Profile',
       'Dashboard',
-      'Activity',
-      'Analytics',
-      'System',
-      'Deployments',
-      'My Settings',
-      'Team Settings',
-      'Help & Feedback',
+      'Orders',
+      'Settings',
       'Log Out',
    ];
    return (
@@ -64,36 +57,14 @@ export const NavbarWrapper = ({children}: Props) => {
                   width: '100%',
                }}
             >
-               <Input
-                  clearable
-                  contentLeft={
-                     <SearchIcon
-                        fill="var(--nextui-colors-accents6)"
-                        size={16}
-                     />
-                  }
-                  contentLeftStyling={false}
-                  css={{
-                     'w': '100%',
-                     'transition': 'all 0.2s ease',
-                     '@xsMax': {
-                        w: '100%',
-                        // mw: '300px',
-                     },
-                     '& .nextui-input-content--left': {
-                        h: '100%',
-                        ml: '$4',
-                        dflex: 'center',
-                     },
-                  }}
-                  placeholder="Search..."
-               />
+              Admin Dashboard
             </Navbar.Content>
             <Navbar.Content>
 
-
+   <Navbar.Content  >
+               <DarkModeSwitch />
+            </Navbar.Content>
                <Navbar.Content hideIn={'md'}>
-                  <SupportIcon />
                   <UserDropdown />
                </Navbar.Content>
             </Navbar.Content>

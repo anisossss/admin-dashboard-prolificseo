@@ -13,7 +13,7 @@ export const AddUser = () => {
 
    return (
       <div>
-         <Button auto onClick={handler}>
+         <Button auto onClick={handler} color={"secondary"}>
             Add User
          </Button>
          <Modal
@@ -87,35 +87,13 @@ export const AddUser = () => {
                         placeholder="Phone Number"
                      />
                   </Flex>
-                  <Flex
-                     css={{
-                        'gap': '$10',
-                        'flexWrap': 'wrap',
-                        '@lg': {flexWrap: 'nowrap'},
-                     }}
-                  >
-                     <Input
-                        label="Department"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Department"
-                     />
-                     <Input
-                        label="Company"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Company"
-                     />
-                  </Flex>
+                 
                </Flex>
             </Modal.Body>
             <Divider css={{my: '$5'}} />
             <Modal.Footer>
-               <Button auto onClick={closeHandler}>
+               <Button auto onClick={closeHandler}
+                color={"secondary"}>
                   Add User
                </Button>
             </Modal.Footer>

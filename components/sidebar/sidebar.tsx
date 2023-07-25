@@ -43,12 +43,12 @@ export const SidebarWrapper = () => {
             >
                <Sidebar.Body className="body sidebar">
                   <SidebarItem
-                     title="Home"
+                     title="Dashboard"
                      icon={<HomeIcon />}
                      isActive={router.pathname === '/'}
                      href="/"
                   />
-                  <SidebarMenu title="Main Menu">
+                  <SidebarMenu title=" ">
                     
                      <SidebarItem
                         isActive={router.pathname === '/users'}
@@ -79,8 +79,7 @@ export const SidebarWrapper = () => {
                         icon={<ReportsIcon />}
                      />
                   </SidebarMenu>
-
-            
+  
                </Sidebar.Body>
            
             </Flex>

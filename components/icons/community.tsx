@@ -5,7 +5,7 @@ interface Props {
    color?: string;
 }
 
-export const Community = ({color = 'white'}: Props) => {
+export const Community = ({color = 'black'}: Props) => {
    return (
       <Svg
          xmlns="http://www.w3.org/2000/svg"
