@@ -1,0 +1,27 @@
+{
+    "name": "PROLIFICSEO",
+    "short_name": "PROLIFICSEO",
+    "description": "Optimize your website with our AI-powered PROLIFICSEO. Get real-time analysis and intelligent recommendations to improve your rankings, increase traffic, and boost conversions. Try it now!",
+
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/safari-pinned-tab.svg",
+            "sizes": "32x32",
+            "purpose": "maskable"
+        }
+
+    ],
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "standalone"
+}
