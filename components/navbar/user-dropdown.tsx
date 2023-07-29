@@ -1,17 +1,24 @@
 import {Avatar, Dropdown, Navbar, Text} from '@nextui-org/react';
+import { useRouter } from "next/router";
 import React from 'react';
 
 export const UserDropdown = () => {
+  const router = useRouter();
+
+     const handleLogout = () => {
+    localStorage.clear(); // clear cache
+    router.push("/auth/login"); // redirect to login page
+  };
    return (
       <Dropdown placement="bottom-right">
          <Navbar.Item>
             <Dropdown.Trigger>
                <Avatar
                   bordered
+                  zoomed
                   as="button"
-                  color="secondary"
                   size="md"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                  src="/img/avatar1.png"
                />
             </Dropdown.Trigger>
          </Navbar.Item>
@@ -30,11 +37,10 @@ export const UserDropdown = () => {
             <Dropdown.Item key="settings" withDivider>
                Settings
             </Dropdown.Item>
-            <Dropdown.Item key="team_settings">Team Settings</Dropdown.Item>
-          
-            
-            <Dropdown.Item key="logout" withDivider color="error">
-               Log Out
+            <Dropdown.Item key="logout" withDivider color="error" >
+              <Text span onClick={handleLogout}>
+               Logout
+              </Text>
             </Dropdown.Item>
          
          </Dropdown.Menu>

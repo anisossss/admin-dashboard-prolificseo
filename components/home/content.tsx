@@ -7,16 +7,10 @@ import {TableWrapper} from '../table/table';
 import NextLink from 'next/link';
 import {CardBalance1} from './card-balance1';
 import {CardBalance2} from './card-balance2';
-import {CardTransactions} from './card-transactions';
 
-const Chart = dynamic(
-   () => import('../charts/steam').then((mod) => mod.Steam),
-   {
-      ssr: false,
-   }
-);
 
 export const Content = () => (
+
    <Box css={{overflow: 'hidden', height: '100%', width:"100%"}}>
       <Flex
          direction={'column'}

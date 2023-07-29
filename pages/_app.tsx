@@ -3,13 +3,19 @@ import type {AppProps} from 'next/app';
 import {createTheme, NextUIProvider} from '@nextui-org/react';
 import {ThemeProvider as NextThemesProvider} from 'next-themes';
 import {Layout} from '../components/layout/layout';
+import { RouteGuard } from "../core/authGuard";
+// import { SSRProvider } from "@react-aria/ssr";
+
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "../store/store";
 
 const lightTheme = createTheme({
    type: 'light',
    theme: {
       colors: {},
    },
-});
+});   
 
 const darkTheme = createTheme({
    type: 'dark',
@@ -29,9 +35,16 @@ function MyApp({Component, pageProps}: AppProps) {
          }}
       >
          <NextUIProvider>
+              <Provider store={store}>
+
             <Layout>
+                 <PersistGate loading={null} persistor={persistor}>
+                    <RouteGuard>
                <Component {...pageProps} />
+               </RouteGuard>
+               </PersistGate>
             </Layout>
+            </Provider>
          </NextUIProvider>
       </NextThemesProvider>
    );
