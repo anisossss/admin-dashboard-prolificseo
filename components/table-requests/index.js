@@ -23,7 +23,6 @@ export const TableWrapper = () => {
   const [selectedRequest, setSelectedRequest] = useState(null);
   const router = useRouter();
   const { accessToken } = useSelector((state) => state.auth);
-  const url = `${CONSTANTS.API_URL_PROD}/admin/get-requests`;
   const [reply, setReply] = useState("");
   const openReplyModal = (request) => {
     setSelectedRequest(request);
@@ -59,11 +58,13 @@ export const TableWrapper = () => {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
+    const url = `${CONSTANTS.API_URL_PROD}/admin/get-requests`;
+
     const fetchRequests = async () => {
       try {
         const headers = { Authorization: accessToken };
-        const { data } = await axios.get(url, { headers });
-        setRequests(data.requests);
+        const data = await axios.get(url, { headers });
+        setRequests(data.data.contacts);
       } catch (error) {
         console.error("Error fetching requests", error);
         toast.error(error.response.data.message);
