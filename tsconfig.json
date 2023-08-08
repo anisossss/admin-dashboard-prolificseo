@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/icons/navbar/support-icon copy.js", "constants/index.js", "components/table-orders/table.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/icons/navbar/support-icon copy.js", "constants/index.js", "components/table-orders/table.jsx", "components/table-orders/index.js", "components/requests/index.js", "components/orders/index.jd", "components/accounts/index.js", "components/table-requests/index.js", "components/table-users/index.js"],
   "exclude": ["node_modules"]
 }

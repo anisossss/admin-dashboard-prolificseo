@@ -1,19 +1,21 @@
 import { Button, Input, Text } from "@nextui-org/react";
 import Link from "next/link";
 import { Breadcrumbs, Crumb, CrumbLink } from "../breadcrumb/breadcrumb.styled";
+import { DotsIcon } from "../icons/accounts/dots-icon";
 import { HouseIcon } from "../icons/breadcrumb/house-icon";
 import { UsersIcon } from "../icons/breadcrumb/users-icon";
+import { ReportsIcon } from "../icons/sidebar/reports-icon";
 import { Flex } from "../styles/flex";
-import { TableWrapper } from "../table-users/table.tsx";
-import { useSelector } from "react-redux";
+import { TableWrapper } from "../table-requests/index";
 import { CONSTANTS } from "../../constants/index.js";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-export const Accounts = () => {
-  var url = `${CONSTANTS.API_URL_PROD}/admin/users-accounts`;
+export const Requests = () => {
+  var url = `${CONSTANTS.API_URL_PROD}/admin/get-requests`;
   const [user, setUser] = useState("");
   const { accessToken } = useSelector((state) => state.auth);
 
@@ -26,7 +28,7 @@ export const Accounts = () => {
         });
         setUser(data.user);
       } catch (error) {
-        console.error("Error fetching accounts", error);
+        console.error("Error fetching requests", error);
       }
     };
     fetchRequests();
@@ -54,8 +56,8 @@ export const Accounts = () => {
         </Crumb>
 
         <Crumb>
-          <UsersIcon />
-          <CrumbLink href="#">Users</CrumbLink>
+          <ReportsIcon />
+          <CrumbLink href="#">Requests</CrumbLink>
           <Text>/</Text>
         </Crumb>
         <Crumb>
@@ -63,7 +65,7 @@ export const Accounts = () => {
         </Crumb>
       </Breadcrumbs>
 
-      <Text h3>All Accounts</Text>
+      <Text h3>All Requests</Text>
 
       <TableWrapper />
     </Flex>

@@ -5,14 +5,9 @@ import { CONSTANTS } from "../../constants/index.js";
 import { IconButton } from "../icons/IconButton.js";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { DeleteIcon } from "../icons/table/delete-icon.tsx";
-import { EyeIcon } from "../icons/table/eye-icon.jsx";
-import { BsDatabaseAdd } from "react-icons/bs";
 import { downloadExcel } from "react-export-table-to-excel";
 import { AiFillFileExcel } from "react-icons/ai";
-import { AddUser } from "./add-user.js";
-import { Flex } from "../styles/flex.ts";
-import toast, { Toaster } from "react-hot-toast";
+import { Flex } from "../styles/flex.js";
 
 export const TableWrapper = () => {
   const { accessToken } = useSelector((state) => state.auth);

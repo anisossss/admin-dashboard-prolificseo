@@ -15,7 +15,7 @@ import axios from "axios";
 import { BsFillReplyAllFill } from "react-icons/bs";
 import { AiFillFileExcel } from "react-icons/ai";
 import { downloadExcel } from "react-export-table-to-excel";
-import { Flex } from "../styles/flex.ts";
+import { Flex } from "../styles/flex.js";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 
@@ -107,7 +107,7 @@ export const TableWrapper = () => {
           </Table.Column>
         </Table.Header>
         <Table.Body>
-          {requests.map((request) => (
+          {requests?.map((request) => (
             <Table.Row key={request._id}>
               <Table.Cell>{request.email}</Table.Cell>
               <Table.Cell>{request.subject}</Table.Cell>

@@ -2,36 +2,34 @@ import { Button, Input, Text } from "@nextui-org/react";
 import Link from "next/link";
 import { Breadcrumbs, Crumb, CrumbLink } from "../breadcrumb/breadcrumb.styled";
 import { HouseIcon } from "../icons/breadcrumb/house-icon";
+import { UsersIcon } from "../icons/breadcrumb/users-icon";
 import { Flex } from "../styles/flex";
-import { TableWrapper } from "../table-orders/table";
-import { PaymentsIcon } from "../icons/sidebar/payments-icon";
+import { TableWrapper } from "../table-users";
+import { useSelector } from "react-redux";
 import { CONSTANTS } from "../../constants/index.js";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 
-export const Orders = () => {
+export const Accounts = () => {
+  var url = `${CONSTANTS.API_URL_PROD}/admin/users-accounts`;
+  const [user, setUser] = useState("");
   const { accessToken } = useSelector((state) => state.auth);
 
-  var url = `${CONSTANTS.API_URL_PROD}/admin/get-orders`;
-  const [orders, setOrders] = useState([]);
-
   useEffect(() => {
-    const fetchOrders = async () => {
+    const fetchRequests = async () => {
       try {
         const headers = { Authorization: accessToken };
-        const data = await axios.get(url, {
+        const { data } = await axios.get(url, {
           headers,
         });
-        setOrders(data.data.orders);
-        console.log("data", data.data.orders);
+        setUser(data.user);
       } catch (error) {
-        console.error("Error fetching requests", error);
+        console.error("Error fetching accounts", error);
       }
     };
-    fetchOrders();
+    fetchRequests();
   }, []);
   return (
     <Flex
@@ -56,8 +54,8 @@ export const Orders = () => {
         </Crumb>
 
         <Crumb>
-          <PaymentsIcon />
-          <CrumbLink href="#">Orders</CrumbLink>
+          <UsersIcon />
+          <CrumbLink href="#">Users</CrumbLink>
           <Text>/</Text>
         </Crumb>
         <Crumb>
@@ -65,7 +63,7 @@ export const Orders = () => {
         </Crumb>
       </Breadcrumbs>
 
-      <Text h3>All Orders</Text>
+      <Text h3>All Accounts</Text>
 
       <TableWrapper />
     </Flex>
