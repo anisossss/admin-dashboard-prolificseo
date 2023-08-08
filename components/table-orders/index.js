@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { downloadExcel } from "react-export-table-to-excel";
 import { AiFillFileExcel } from "react-icons/ai";
-import { Flex } from "../styles/flex.js";
+import { Flex } from "../styles/flex";
 
 export const TableWrapper = () => {
   const { accessToken } = useSelector((state) => state.auth);

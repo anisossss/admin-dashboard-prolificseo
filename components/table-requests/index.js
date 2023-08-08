@@ -15,7 +15,7 @@ import axios from "axios";
 import { BsFillReplyAllFill } from "react-icons/bs";
 import { AiFillFileExcel } from "react-icons/ai";
 import { downloadExcel } from "react-export-table-to-excel";
-import { Flex } from "../styles/flex.js";
+import { Flex } from "../styles/flex";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 
