@@ -108,7 +108,7 @@ export const TableWrapper = () => {
           </Table.Column>
         </Table.Header>
         <Table.Body>
-          {requests?.map((request) => (
+          {requests.map((request) => (
             <Table.Row key={request._id}>
               <Table.Cell>{request.email}</Table.Cell>
               <Table.Cell>{request.subject}</Table.Cell>
