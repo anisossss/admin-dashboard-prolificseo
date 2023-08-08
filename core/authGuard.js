@@ -33,7 +33,7 @@ function RouteGuard({ children }) {
       "/auth/reset-password",
       "/support",
       "/privacy-policy",
-      "/terms-of-service",
+      "/terms-&-conditions",
     ];
     // Allow all register routes and any content of query
     const registerRegex = new RegExp("^/auth/register\\b.*");

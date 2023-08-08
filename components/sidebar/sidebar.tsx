@@ -5,7 +5,6 @@ import { Flex } from "../styles/flex";
 import { HomeIcon } from "../icons/sidebar/home-icon";
 import { PaymentsIcon } from "../icons/sidebar/payments-icon";
 import { AccountsIcon } from "../icons/sidebar/accounts-icon";
-import { ProductsIcon } from "../icons/sidebar/products-icon";
 import { ReportsIcon } from "../icons/sidebar/reports-icon";
 
 import { SidebarItem } from "./sidebar-item";

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, Input, useInput, Grid, Button } from "@nextui-org/react";
 import { setAccessToken, setRefreshToken } from "../../store/authSlice";
 import { useDispatch } from "react-redux";
-import { CONSTANTS } from "../../constants/index";
+import { CONSTANTS } from "../../constants/index.js";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
