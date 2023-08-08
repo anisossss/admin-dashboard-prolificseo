@@ -66,6 +66,7 @@ export const TableWrapper = () => {
         setRequests(data.requests);
       } catch (error) {
         console.error("Error fetching requests", error);
+        toast.error(error.response.data.message);
       }
     };
     fetchRequests();
