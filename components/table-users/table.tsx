@@ -109,11 +109,9 @@ export const TableWrapper = () => {
         {},
         { headers }
       );
-      console.log("User deleted successfully");
+      toast.success("User deleted successfully");
       router.reload();
-      toast.success(res.data.message);
     } catch (error) {
-      console.error("Error deleting user", error);
       toast.error("Error deleting user");
     }
   };
@@ -130,6 +128,8 @@ export const TableWrapper = () => {
           Export to CSV
         </Button>
       </Flex>
+      <br></br>
+      <br></br>
       <Table
         aria-label="Example table with custom cells"
         css={{

@@ -56,7 +56,7 @@ export default function Login() {
         dispatch(setAccessToken(accessToken));
         dispatch(setRefreshToken(refreshToken));
         toast.success(res.data.message);
-        router.push("/");
+        router.push("/dashboard");
       } else {
         console.error("You are not authorized !");
         toast.error("Invalid server response");

@@ -16,21 +16,22 @@ export const Orders = () => {
   const { accessToken } = useSelector((state) => state.auth);
 
   var url = `${CONSTANTS.API_URL_PROD}/admin/get-orders`;
-  const [user, setUser] = useState("");
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const fetchRequests = async () => {
+    const fetchOrders = async () => {
       try {
         const headers = { Authorization: accessToken };
-        const { data } = await axios.post(url, {
+        const data = await axios.get(url, {
           headers,
         });
-        setUser(data.user);
+        setOrders(data.data.orders);
+        console.log("data", data.data.orders);
       } catch (error) {
         console.error("Error fetching requests", error);
       }
     };
-    fetchRequests();
+    fetchOrders();
   }, []);
   return (
     <Flex
@@ -65,26 +66,6 @@ export const Orders = () => {
       </Breadcrumbs>
 
       <Text h3>All Orders</Text>
-      <Flex
-        css={{ gap: "$8" }}
-        align={"center"}
-        justify={"between"}
-        wrap={"wrap"}
-      >
-        <Flex
-          css={{
-            gap: "$6",
-            flexWrap: "wrap",
-            "@sm": { flexWrap: "nowrap" },
-          }}
-          align={"center"}
-        >
-          <Input
-            css={{ width: "100%", maxW: "410px" }}
-            placeholder="Search users"
-          />
-        </Flex>
-      </Flex>
 
       <TableWrapper />
     </Flex>

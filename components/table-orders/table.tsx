@@ -1,39 +1,67 @@
-import { Table } from "@nextui-org/react";
+import { Table, Button } from "@nextui-org/react";
 import React from "react";
-import { Box } from "../styles/box";
-import { columns, users } from "./data";
-import { RenderCell } from "./render-cell";
+import { useState, useEffect } from "react";
+import { CONSTANTS } from "../../constants/index.js";
+import { IconButton } from "../icons/IconButton.js";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { DeleteIcon } from "../icons/table/delete-icon.tsx";
+import { EyeIcon } from "../icons/table/eye-icon.jsx";
+import { BsDatabaseAdd } from "react-icons/bs";
+import { downloadExcel } from "react-export-table-to-excel";
+import { AiFillFileExcel } from "react-icons/ai";
+import { AddUser } from "./add-user.js";
+import { Flex } from "../styles/flex.ts";
+import toast, { Toaster } from "react-hot-toast";
 
 export const TableWrapper = () => {
   const { accessToken } = useSelector((state) => state.auth);
   const url = `${CONSTANTS.API_URL_PROD}/admin/get-orders`;
 
   const [orders, setOrders] = useState([]);
-
+  function handleDownloadExcel() {
+    downloadExcel({
+      fileName: "All orders",
+      sheet: "All orders",
+      tablePayload: {
+        header: ["User", "Status", "Plan", "Created At"],
+        body: orders.map((order) => [
+          order.userName,
+          order.status,
+          order.plan,
+          order.createAt,
+        ]),
+      },
+    });
+  }
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchOrders = async () => {
       try {
         const headers = { Authorization: accessToken };
         const { data } = await axios.get(url, {
           headers,
         });
-        setUser(data.user);
-        mapUsers(data.user);
+        setOrders(data.orders);
         console.log("data", data);
       } catch (error) {
         console.error("Error fetching requests", error);
       }
     };
-    fetchUsers();
+    fetchOrders();
   }, []);
   return (
-    <Box
-      css={{
-        "& .nextui-table-container": {
-          boxShadow: "none",
-        },
-      }}
-    >
+    <>
+      <Flex direction={"row"} css={{ gap: "$6" }} wrap={"wrap"}>
+        <Button
+          auto
+          onClick={handleDownloadExcel}
+          iconRight={<AiFillFileExcel />}
+        >
+          Export to CSV
+        </Button>
+      </Flex>
+      <br></br>
+      <br></br>
       <Table
         aria-label="Example table with custom cells"
         css={{
@@ -43,31 +71,26 @@ export const TableWrapper = () => {
           width: "100%",
           px: 0,
         }}
-        selectionMode="multiple"
       >
-        <Table.Header columns={columns}>
-          {(column) => (
-            <Table.Column
-              key={column.uid}
-              hideHeader={column.uid === "actions"}
-              align={column.uid === "actions" ? "center" : "start"}
-            >
-              {column.name}
-            </Table.Column>
-          )}
+        <Table.Header>
+          <Table.Column>User</Table.Column>
+          <Table.Column>Status</Table.Column>
+          <Table.Column>Plan</Table.Column>
+          <Table.Column>Created At</Table.Column>
         </Table.Header>
-        <Table.Body items={users}>
-          {(item) => (
-            <Table.Row>
-              {(columnKey) => (
-                <Table.Cell>
-                  {RenderCell({ user: item, columnKey: columnKey })}
-                </Table.Cell>
-              )}
+        <Table.Body>
+          {orders.map((order) => (
+            <Table.Row key={order._id}>
+              <Table.Cell>{order.userName}</Table.Cell>
+              <Table.Cell>{order.status}</Table.Cell>
+              <Table.Cell>{order.plan}</Table.Cell>
+              <Table.Cell>
+                {new Date(order.createdAt).toLocaleDateString()}
+              </Table.Cell>
             </Table.Row>
-          )}
+          ))}
         </Table.Body>
       </Table>
-    </Box>
+    </>
   );
 };
